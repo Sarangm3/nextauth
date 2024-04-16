@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getDataFromToken } from '@/utils/getDataFromToken';
 import User from '@/models/User';
 
-// POST /api/users/me
-export const POST = async (req: NextRequest) => {
+// GET /api/users/me
+export const GET = async (req: NextRequest) => {
   try {
     const userId = await getDataFromToken(req);
     const user = await User.findById(userId).select('-password');
